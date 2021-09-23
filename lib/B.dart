@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project1/appbar.dart';
+import 'd.dart';
+import 'mycont.dart';
+import 'mycontainer.dart';
 
 class Talabet extends StatefulWidget {
   @override
@@ -7,127 +9,49 @@ class Talabet extends StatefulWidget {
 }
 
 class _TalabetState extends State<Talabet> {
-  Widget mcont() {
-    return Container(
-      height: 300,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            return listee();
-          }),
-    );
-  }
-
-  Widget mtext(String c) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20, left: 20),
-      child: Text(
-        c,
-        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-
   List me = [
     {'myph': 'assets/images/k2.jpg'},
     {'myph': 'assets/images/k.jpg'},
   ];
-  Widget listee() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20),
-      child: Container(
-        height: 280,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-          color: Colors.white,
-        ),
-        child: Column(
-          children: <Widget>[
-            Container(
-              height: 150,
-              width: MediaQuery.of(context).size.width - 30,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage('assets/images/v.jpg')),
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10)),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                    child: Text(
-                      'salla',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.motorcycle,
-                      ),
-                      Text(
-                        ' within 30 mins',
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 288),
-              child: Text(
-                'Grocery',
-                style: TextStyle(color: Colors.grey),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: <Widget>[
-                  Icon(Icons.sentiment_neutral),
-                  Text(
-                    'Good  ',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  Text(
-                    'Delivery: free  ',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget mycontainer(String x) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: 150,
-        width: 155,
-        decoration: BoxDecoration(
-            image: DecorationImage(fit: BoxFit.cover, image: AssetImage(x)),
-            color: Colors.teal,
-            borderRadius: BorderRadius.circular(7)),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: Appb(),
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        actions: <Widget>[
+          Icon(
+            Icons.search,
+            size: 30,
+            color: Colors.black,
+          )
+        ],
+        title: Column(
+          children: <Widget>[
+            Text(
+              'delivering to',
+              style: TextStyle(color: Colors.grey, fontSize: 18),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'gomhoria street',
+                  style: TextStyle(fontSize: 20, color: Colors.orange[700]),
+                ),
+                Icon(
+                  Icons.keyboard_arrow_down,
+                  color: Colors.orange[700],
+                  size: 30,
+                )
+              ],
+            )
+          ],
+        ),
+      ),
       drawer: Drawer(),
       body: ListView(
         children: <Widget>[
